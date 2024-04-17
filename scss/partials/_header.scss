@@ -1,0 +1,108 @@
+@use "_mixins.scss" as *;
+@use "_variables.scss" as *;
+
+.header {
+  background-color: $black-main;
+  &-top {
+    @include flex;
+    @include xl {
+      display: block;
+      text-align: center;
+      padding: 5px 0 15px 0;
+    }
+  }
+  &-list {
+    padding: 0;
+    @include xl {
+      margin-bottom: 0px;
+    }
+    span {
+      text-decoration: none;
+      @include text($light-gray, 12px, 400, 16px);
+      padding: 0 15px;
+      @include xl {
+        margin-bottom: 10px;
+        display: inline-block;
+      }
+    }
+    li {
+      display: inline-block;
+      list-style: none;
+      cursor: pointer;
+      color: $light-gray;
+    }
+    li:first-child {
+      padding-left: 15px;
+      background: url("../../img/header/phone.svg") no-repeat 0 3px;
+    }
+  }
+  &-contacts {
+    a {
+      text-decoration: none;
+      @include text($light-gray, 12px, 400, 16px);
+    }
+    a:first-child {
+      padding-left: 20px;
+      background: url("../../img/header/log-in.svg") no-repeat 0 0px;
+    }
+    a:hover {
+      color: $white;
+    }
+  }
+}
+
+.header-bottom {
+  background-color: $black;
+}
+.bottom {
+  &-content {
+    @include flex;
+    @include xl {
+      display: block;
+      text-align: center;
+      padding-top: 30px;
+    }
+  }
+  &-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+      @include text($light-gray, 14px, 400, 18px);
+    }
+    li {
+      list-style: none;
+      padding: 30px 15px;
+      @include xl{
+      padding: 15px;
+      }
+    }
+    li:last-child {
+      padding-right: 15px;
+    }
+    li:hover {
+      transition: 0.4s;
+      background-color: #1f1f1f;
+      a {
+        color: $white;
+      }
+    }
+    @include xl {
+      justify-content: center;
+    }
+    @include sl {
+      display: block;
+        .bottom-basket,
+      .bottom-search {
+        display: none;
+      }
+    }
+  }
+}
+.header-logo{
+  @include xl{
+    padding-bottom: 10px;
+  }
+}

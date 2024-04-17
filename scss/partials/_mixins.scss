@@ -4,3 +4,24 @@
   font-weight: $weight;
   line-height: $height;
 }
+@mixin flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+@mixin xl {
+  @media screen and (max-width: 630px) {
+    @content;
+  }
+}
+@mixin sl {
+  @media screen and (max-width: 530px) {
+    @content;
+  }
+}
+@mixin sm {
+  @media screen and (max-width: 640px) {
+    @content;
+  }
+}

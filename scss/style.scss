@@ -1,3 +1,5 @@
-@use './partials/mixins';
+@use './partials/normalize';
 @use './partials/variables';
-@use './partials/general'
+@use './partials/mixins';
+@use './partials/general';
+@use './partials/header';
