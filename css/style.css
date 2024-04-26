@@ -226,15 +226,34 @@ body {
     display: inline-block;
   }
 }
+.header-list span :hover {
+  color: white;
+}
+.header-list a {
+  color: #969696;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  text-decoration: none;
+}
 .header-list li {
   display: inline-block;
   list-style: none;
   cursor: pointer;
   color: #969696;
 }
+.header-list li :hover {
+  color: white;
+}
 .header-list li:first-child {
   padding-left: 15px;
   background: url("../../img/header/phone.svg") no-repeat 0 3px;
+}
+.header-contacts span {
+  color: #969696;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
 }
 .header-contacts a {
   text-decoration: none;
@@ -245,35 +264,57 @@ body {
 }
 .header-contacts a:first-child {
   padding-left: 20px;
-  background: url("../../img/header/log-in.svg") no-repeat 0 0px;
+  background: url("../../img/header/log-in.svg") no-repeat 0 1px;
+}
+.header-contacts a:first-child:hover {
+  background: url("../../img/header/log-in-active.svg") no-repeat 0 1px;
 }
 .header-contacts a:hover {
   color: #fff;
+}
+@media screen and (max-width: 630px) {
+  .header-contacts {
+    display: none;
+  }
 }
 
 .header-bottom {
   background-color: #0F0F0F;
 }
-
-.bottom-content {
+@media screen and (max-width: 630px) {
+  .header-bottom .bottom-logo {
+    padding: 15px;
+  }
+}
+.header-bottom .bottom-content {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
 @media screen and (max-width: 630px) {
-  .bottom-content {
+  .header-bottom .bottom-content {
     display: block;
     text-align: center;
-    padding-top: 30px;
   }
 }
-.bottom-list {
+.header-bottom .bottom-list {
   margin: 0;
   padding: 0;
   display: flex;
 }
-.bottom-list a {
+@media screen and (max-width: 630px) {
+  .header-bottom .bottom-list {
+    justify-content: center;
+    display: block;
+  }
+  .header-bottom .bottom-list .bottom-basket,
+  .header-bottom .bottom-list .bottom-search {
+    display: none;
+  }
+}
+.header-bottom .bottom-list a {
   text-transform: uppercase;
   text-decoration: none;
   color: #969696;
@@ -281,44 +322,100 @@ body {
   font-weight: 400;
   line-height: 18px;
 }
-.bottom-list li {
+.header-bottom .bottom-list li {
   list-style: none;
   padding: 30px 15px;
 }
 @media screen and (max-width: 630px) {
-  .bottom-list li {
+  .header-bottom .bottom-list li {
     padding: 15px;
   }
 }
-.bottom-list li:last-child {
+.header-bottom .bottom-list li:last-child {
   padding-right: 15px;
 }
-.bottom-list li:hover {
+.header-bottom .bottom-list li:hover {
   transition: 0.4s;
   background-color: #1f1f1f;
 }
-.bottom-list li:hover a {
+.header-bottom .bottom-list li:hover a {
   color: #fff;
 }
-@media screen and (max-width: 630px) {
-  .bottom-list {
-    justify-content: center;
-  }
+.header-bottom .bottom-none {
+  display: none;
 }
-@media screen and (max-width: 530px) {
-  .bottom-list {
+.header-bottom .bottom-burger {
+  display: none;
+}
+@media screen and (max-width: 630px) {
+  .header-bottom .bottom-burger {
+    background-color: rgb(97, 97, 97);
+    border-radius: 2px;
+    padding: 5px;
+    height: 25px;
     display: block;
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 15px;
   }
-  .bottom-list .bottom-basket,
-  .bottom-list .bottom-search {
-    display: none;
+  .header-bottom .bottom-none {
+    display: block;
   }
 }
 
 @media screen and (max-width: 630px) {
-  .header-logo {
-    padding-bottom: 10px;
+  .bottom-list.hidden {
+    position: fixed;
+    left: 100%;
+    background-color: white;
+    z-index: -1;
   }
+}
+
+.line {
+  position: relative;
+  width: 20px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: 0.1s;
+}
+.line::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  bottom: 6px;
+  right: 0px;
+  width: 20px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+}
+.line::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  top: 6px;
+  right: 0px;
+  width: 20px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.active .line {
+  height: 0px;
+}
+.active .line::before {
+  bottom: -1px;
+  rotate: 40deg;
+  border-radius: 2px;
+}
+.active .line::after {
+  rotate: -40deg;
+  top: -2px;
+  border-radius: 2px;
 }
 
 /*# sourceMappingURL=style.css.map */

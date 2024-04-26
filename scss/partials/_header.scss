@@ -24,12 +24,22 @@
         margin-bottom: 10px;
         display: inline-block;
       }
+      :hover {
+        color: white;
+      }
+    }
+    a {
+      @include text($light-gray, 12px, 400, 16px);
+      text-decoration: none;
     }
     li {
       display: inline-block;
       list-style: none;
       cursor: pointer;
       color: $light-gray;
+      :hover {
+        color: white;
+      }
     }
     li:first-child {
       padding-left: 15px;
@@ -37,72 +47,154 @@
     }
   }
   &-contacts {
+    span {
+      @include text($light-gray, 12px, 400, 16px);
+    }
     a {
       text-decoration: none;
       @include text($light-gray, 12px, 400, 16px);
     }
     a:first-child {
       padding-left: 20px;
-      background: url("../../img/header/log-in.svg") no-repeat 0 0px;
+      background: url("../../img/header/log-in.svg") no-repeat 0 1px;
+      &:hover {
+        background: url("../../img/header/log-in-active.svg") no-repeat 0 1px;
+      }
     }
     a:hover {
       color: $white;
     }
+    @include xl{
+      display: none;
+    }
   }
 }
-
 .header-bottom {
   background-color: $black;
-}
-.bottom {
-  &-content {
-    @include flex;
-    @include xl {
-      display: block;
-      text-align: center;
-      padding-top: 30px;
-    }
-  }
-  &-list {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    a {
-      text-transform: uppercase;
-      text-decoration: none;
-      @include text($light-gray, 14px, 400, 18px);
-    }
-    li {
-      list-style: none;
-      padding: 30px 15px;
-      @include xl{
-      padding: 15px;
+  .bottom {
+    &-logo {
+      @include xl {
+        padding: 15px;
       }
     }
-    li:last-child {
-      padding-right: 15px;
-    }
-    li:hover {
-      transition: 0.4s;
-      background-color: #1f1f1f;
-      a {
-        color: $white;
+    &-content {
+      position: relative;
+      @include flex;
+      @include xl {
+        display: block;
+        text-align: center;
       }
     }
-    @include xl {
-      justify-content: center;
-    }
-    @include sl {
-      display: block;
+    &-list {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      @include xl {
+        justify-content: center;
+        display: block;
         .bottom-basket,
-      .bottom-search {
-        display: none;
+        .bottom-search {
+          display: none;
+        }
       }
+      a {
+        text-transform: uppercase;
+        text-decoration: none;
+        @include text($light-gray, 14px, 400, 18px);
+      }
+      li {
+        list-style: none;
+        padding: 30px 15px;
+        @include xl {
+          padding: 15px;
+        }
+      }
+      li:last-child {
+        padding-right: 15px;
+      }
+      li:hover {
+        transition: 0.4s;
+        background-color: #1f1f1f;
+        a {
+          color: $white;
+        }
+      }
+    }
+    &-none{
+      display: none;
+    }
+    &-burger {
+      display: none;
+    }
+    @include xl {
+      &-burger {
+        background-color: rgb(97, 97, 97);
+        border-radius: 2px;
+        padding: 5px;
+        height: 25px;
+        display: block;
+        border: none;
+        position: absolute;
+        right: 0;
+        top: 15px;
+      }
+        &-none{
+      display: block;
+    }
     }
   }
 }
-.header-logo{
-  @include xl{
-    padding-bottom: 10px;
+.bottom-list.hidden {
+  @include xl {
+    position: fixed;
+    left: 100%;
+    background-color: white;
+    z-index: -1;
   }
+}
+.line {
+  position: relative;
+  width: 20px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: 0.1s;
+  &::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    bottom: 6px;
+    right: 0px;
+    width: 20px;
+    height: 3px;
+    background-color: white;
+  border-radius: 2px;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 6px;
+    right: 0px;
+    width: 20px;
+    height: 3px;
+    background-color: white;
+  border-radius: 2px;
+
+  }
+}
+.active {
+ .line {
+  height: 0px;
+  &::before {
+    bottom: -1px;
+    rotate: (40deg);
+    border-radius: 2px;
+  }
+  &::after {
+    rotate: (-40deg);
+    top: -2px;
+    border-radius: 2px;
+  }
+} 
 }
